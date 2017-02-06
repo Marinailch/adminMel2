@@ -1,0 +1,95 @@
+div {
+    margin: 10px auto 30px;
+}
+
+.link{
+    height: 70px;
+    width: 170px;
+    float: right;
+    line-height: 70px;
+
+}
+
+p{
+
+    display: inline-block;
+    /*color: #fff;*/
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+div.link a{
+    margin: 5px;
+
+}
+div.link a img{
+    margin-top: 25px;
+}
+
+footer{
+    width: 70%;
+    min-width: 800px;
+    margin: -10px auto 30px;
+}
+footer h4{
+    margin-top: 5px;
+}
+footer tr img{
+    width: 150px;
+    height: 150px;
+}
+footer th, footer td{
+    text-align: center;
+}
+main {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+      }
+ .container {
+   width: 70%;
+    min-width: 800px;
+    margin: 28px auto; 
+}
+.delete_foto{
+    width: 250px;
+    float: left;
+    height: 170px;
+    overflow: hidden;
+    margin: 0 0px 20px 20px;
+    background: #ebeff2;
+    padding: 5px 0;
+}
+
+.add_foto{
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    background-color: #ebeff2;
+}
+
+.catalog{
+	width: 265px;
+    float: left;
+    height: 220px;
+    overflow: hidden;
+    margin: 20px 17px 20px 0px;
+    background: #ebeff2;
+    padding: 10px 0px;
+}
+
+.catalog>p {
+	margin-left: 13px;
+    font-size: 13px;
+    float: left;
+    width: 180px;
+}
+
+.catalog input {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	float: right;
+	margin-right:5px;
+}
+

@@ -1,0 +1,87 @@
+
+
+.header {
+    background-color: #7c9fb9;
+    margin: 10px auto 10px;
+    width: 100%;
+    min-width: 800px;
+    overflow: hidden;
+    height: 100px;
+}
+.logo {
+    margin: 20px;
+    width: 223px;
+    height: 60px;
+    float: left;
+}
+
+body {
+    background-color: #ebeff2;
+    margin: 0;
+}
+* {
+    font-family: Century Gothic, Arial, Helvetica, sans-serif;
+}
+
+.col-4 {
+    float: left;
+    width: 360px;
+    margin-right: 20px;
+    margin-top: 20px;
+    height: 270px;
+    background-color: #ebeff2;
+    padding-top: 50px;
+    line-height: 1.5em;
+    text-align: left;
+    padding-left: 40px;
+}
+
+.menu {
+    overflow: hidden;
+    float: left;
+    margin-left: 40px;
+    margin-top: 5px;
+    line-height: 50px;
+}
+
+.container_bar_index {
+    width: 255px;
+    height: auto;
+    /*background: #ebeff2;*/
+    margin: 0 auto;
+    /*padding: 19px 5px 0px 38px;*/
+    /*float: left;*/
+    line-height: 2em;
+}
+.img_workout {
+    width: 250px;
+    float: left;
+    height: 170px;
+    overflow: hidden;
+    margin: 20px 17px 20px 0px;
+    background: #ebeff2;
+    padding: 10px 0px;
+}
+
+.menu_li {
+    float: left;
+    margin: 20px;
+    color: #fff;
+    text-align: center;
+}
+.content_main_out {
+    display: block;
+    overflow: hidden;
+}
+
+
+h4 {
+    margin-bottom: 5px;
+}
+
+.del{
+    display: block;
+    /* width: 100%; */
+    margin-left: 294px;
+    margin-bottom: 20px;
+}
