@@ -411,6 +411,7 @@ header('Content-Type: text/html; charset=utf-8');
 		                        echo "error with connection to database ->".$mysqli->connect_error;
 		                        die('No connection with database'.__LINE__);
 	                        }
+	                        $mysqli->query('SET NAMES UTF8');
 	                        $query = "SELECT main.id, class, link, title1, title2, height FROM main, foto WHERE main.id=foto.link_id AND main_foto_id=\"Y\"";
 	                        if ($result = $mysqli->query($query)) {
 		                        while ($row = $result->fetch_assoc()):
@@ -469,7 +470,7 @@ header('Content-Type: text/html; charset=utf-8');
                             <div class="item">
                                 <div class="col-md-8 col-md-offset-2 t-info">            
                                     <p>Ниже представлен весь перечень услуг, которые мы предлагаем.
-Наша бригада включает все смежные организации, квалифицированных рабочих, мебельщиков, каменщиков, стекольщиков, а также есть мастера по текстилю, декоративной отделки и т. д.
+Наша бригада включает все смежные организации, квалифицированных рабочих, мебельщиков, каменщиков, стекольщиков, а также есть мастера по текстилю, декоративной отделки и т.д.
 </p>                                    
                                   <!--   <b>- Hermione Granger</b> -->
                                 </div>                     
@@ -486,8 +487,8 @@ header('Content-Type: text/html; charset=utf-8');
 
                             <div class="item">
                                 <div class="col-md-8 col-md-offset-2 t-info">            
-                                    <p>Стоимость проекта варьируется в зависимости от объема,местонахождения и типа проекта либо отдельных позиций, выбранных Вами. Звоните нам и мы составим коммерческое предложение подходящее именно Вам.
-Работаем исключительно на взаимовыгодных условиях.Свяжитесь с нами!
+                                    <p>Стоимость проекта варьируется в зависимости от объема, местонахождения и типа проекта либо отдельных позиций, выбранных Вами. Звоните нам и мы составим коммерческое предложение подходящее именно Вам.
+Работаем исключительно на взаимовыгодных условиях. Свяжитесь с нами!
 </p>
 
 
@@ -510,18 +511,18 @@ header('Content-Type: text/html; charset=utf-8');
                     <!-- Service Item (title, icon and description for your service) -->
                     <div class="col-sm-4 col-md-4 service-box">  
                         <!-- Icon -->                    
-                        <img alt="icon project" src="assets/img/1.png"></img>
+                        <img alt="icon project" src="assets/img/1.png">
 
                         <!-- Title and Description -->
                         <div class="service-title">    
                             <h3>Эскизно – планировочные услуги</h3>                      
                         </div>
                         <p class="p_box">
-                        	<img alt="icon project" src="assets/img/il1.png"></img> Обмерочно-демонтажный план<br>
-							<img alt="icon project" src="assets/img/il1.png"></img>	Планировочное решение<br>
-							<img alt="icon project" src="assets/img/il1.png"></img>	План расстановки мебели<br>
-							<img alt="icon project" src="assets/img/il1.png"></img>	План монтажа всех перегородок<br>
-							<span><img alt="icon project" src="assets/img/il1.png"></img> Визуализация необходимых помещений<br></span>
+                        	<img alt="icon project" src="assets/img/il1.png"> Обмерочно-демонтажный план<br>
+							<img alt="icon project" src="assets/img/il1.png">	Планировочное решение<br>
+							<img alt="icon project" src="assets/img/il1.png">	План расстановки мебели<br>
+							<img alt="icon project" src="assets/img/il1.png">	План монтажа всех перегородок<br>
+							<span><img alt="icon project" src="assets/img/il1.png"> Визуализация необходимых помещений<br></span>
 							<br>
 							<a href="project.php" ">Далее...</a>
 
@@ -531,19 +532,19 @@ header('Content-Type: text/html; charset=utf-8');
                     <!-- Service Item (title, icon and description for your service) -->
                     <div class="col-sm-4 col-md-4 service-box service-box-l">  
                         <!-- Icon -->   
-                        <img alt="icon project" src="assets/img/2.png"></img>
+                        <img alt="icon project" src="assets/img/2.png">
                         
                         <!-- Title and Description -->
                         <div class="service-title">  
                             <h3>Строительство</h3>      
                         </div>                
                         <p class="p_box">	
-                        	<img alt="icon project" src="assets/img/il1.png"></img> Привязка сантехнических приборов<br>
-							<img alt="icon project" src="assets/img/il1.png"></img> План полов<br>
-							<img alt="icon project" src="assets/img/il1.png"></img> План потолков<br>
-							<img alt="icon project" src="assets/img/il1.png"></img> Сечения по потолкам<br>
-							<img alt="icon project" src="assets/img/il1.png"></img> Электроинсталляция светильников <br>
-							<img alt="icon project" src="assets/img/il1.png"></img> Электоинсталляция розеток<br> <a href="project.php" ">Далее...</a>
+                        	<img alt="icon project" src="assets/img/il1.png"> Привязка сантехнических приборов<br>
+							<img alt="icon project" src="assets/img/il1.png"> План полов<br>
+							<img alt="icon project" src="assets/img/il1.png"> План потолков<br>
+							<img alt="icon project" src="assets/img/il1.png"> Сечения по потолкам<br>
+							<img alt="icon project" src="assets/img/il1.png"> Электроинсталляция светильников <br>
+							<img alt="icon project" src="assets/img/il1.png"> Электоинсталляция розеток<br> <a href="project.php" ">Далее...</a>
 <!--7.	Схема раскладки плитки с просчетом материала
 8.	Развертки стен,сечения и виды. (по необходимости)
 9.	Встреча со строителями для ознакомления с чертежами.
@@ -554,18 +555,18 @@ header('Content-Type: text/html; charset=utf-8');
                     <!-- Service Item (title, icon and description for your service) -->
                     <div class="col-sm-4 col-md-4 service-box service-box-l">   
                         <!-- Icon -->  
-                        <img alt="icon project" src="assets/img/3.png"></img>
+                        <img alt="icon project" src="assets/img/3.png">
                         
                         <!-- Title and Description -->
                         <div class="service-title">  
                             <h3>Отделка и мебель </h3>                      
                         </div>
                         <p class="p_box">
-                        	<img alt="icon project" src="assets/img/il1.png"></img> Все чертежи мебели<br>
-							<img alt="icon project" src="assets/img/il1.png"></img> Подбор всех отделочных материалов<br>
-							<img alt="icon project" src="assets/img/il1.png"></img> Коррекция чертежей под выбранные материалы<br>
-							<img alt="icon project" src="assets/img/il1.png"></img> Подбор готовой мебели<br>
-							<img alt="icon project" src="assets/img/il1.png"></img> Оформление окон<br>
+                        	<img alt="icon project" src="assets/img/il1.png"> Все чертежи мебели<br>
+							<img alt="icon project" src="assets/img/il1.png"> Подбор всех отделочных материалов<br>
+							<img alt="icon project" src="assets/img/il1.png"> Коррекция чертежей под выбранные материалы<br>
+							<img alt="icon project" src="assets/img/il1.png"> Подбор готовой мебели<br>
+							<img alt="icon project" src="assets/img/il1.png"> Оформление окон<br>
 							<a href="project.php" ">Далее...</a>
 </p>            
                     </div>                                                              
@@ -573,15 +574,15 @@ header('Content-Type: text/html; charset=utf-8');
                     <!-- Service Item (title, icon and description for your service) -->
                     <div class="col-sm-4 col-md-4 service-box-none">   
                         <!-- Icon -->  
-                       <img alt="icon project" src="assets/img/4.png"></img>
+                       <img alt="icon project" src="assets/img/4.png">
                         
                         <!-- Title and Description -->
                         <div class="service-title">  
                             <h3>Авторский надзор</h3>                      
                         </div>
-                        <p class="p_box"><img alt="icon project" src="assets/img/il1.png"></img> Выезд на стройку(2 раза в неделю)<br>
-							<img alt="icon project" src="assets/img/il1.png"></img>	Работа со смежными организациями<br>
-							<img alt="icon project" src="assets/img/il1.png"></img>	Корректировка чертежей для смежников и выдача им задания<br><br>
+                        <p class="p_box"><img alt="icon project" src="assets/img/il1.png"> Выезд на стройку(2 раза в неделю)<br>
+							<img alt="icon project" src="assets/img/il1.png">	Работа со смежными организациями<br>
+							<img alt="icon project" src="assets/img/il1.png">	Корректировка чертежей для смежников и выдача им задания<br><br>
 							<a href="project.php" >Далее...</a>
 					<!-- 	4.	Работа со строительной бригадой и прорабом -->
 </p>            
@@ -590,15 +591,15 @@ header('Content-Type: text/html; charset=utf-8');
                     <!-- Service Item (title, icon and description for your service) -->
                     <div class="col-sm-4 col-md-4 service-box-none service-box-l">   
                         <!-- Icon -->  
-                        <img alt="icon project" src="assets/img/5.png"></img>
+                        <img alt="icon project" src="assets/img/5.png">
                         
                         <!-- Title and Description -->
                         <div class="service-title">  
                             <h3>Декорирование</h3>                      
                         </div>
-                        <p class="p_box"><img alt="icon project" src="assets/img/il1.png"></img> Подбор текстиля<br>
-        					<img alt="icon project" src="assets/img/il1.png"></img> Подбор элементов декора, составление композиций<br>
-       						<img alt="icon project" src="assets/img/il1.png"></img> Подбор озеленения помещения либо улицы <br>
+                        <p class="p_box"><img alt="icon project" src="assets/img/il1.png"> Подбор текстиля<br>
+        					<img alt="icon project" src="assets/img/il1.png"> Подбор элементов декора, составление композиций<br>
+       						<img alt="icon project" src="assets/img/il1.png"> Подбор озеленения помещения либо улицы <br>
        						 <a href="project.php" >Далее...</a>
         					<!--  4. Подбор посуды -->
 </p>            
@@ -607,7 +608,7 @@ header('Content-Type: text/html; charset=utf-8');
                     <!-- Service Item (title, icon and description for your service) -->
                     <div class="col-sm-4 col-md-4 service-box-none service-box-l">   
                         <!-- Icon -->  
-                        <img alt="icon project" src="assets/img/6.png"></img> 
+                        <img alt="icon project" src="assets/img/6.png"> 
                         
                         <!-- Title and Description -->
                         <div class="service-title">  

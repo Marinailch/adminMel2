@@ -18,12 +18,17 @@ class MainStorage{
 	        $db['name']);
     }
 
+    public function getEnc(){
+    return $this->db->query('SET NAMES UTF8');
+	}
+
 	/**
 	 * Получаем выборку всех id, классов, заглавных фото из БД
 	 * @return array|bool
 	 * возвращаем массив с данными из БД
 	 */
 	public function getcatalogs(){
+        $this->getEnc();
 		$query = "SELECT main.id, class, link, title1, title2, height FROM main, foto WHERE main.id=foto.link_id AND main_foto_id=\"Y\" ORDER BY foto.id DESC";
 		$result = $this->db->query($query);
 		if ($result) {
@@ -31,7 +36,9 @@ class MainStorage{
 			while ($new_item = $result->fetch_assoc()) {
 				$catalogs[]=$new_item;
 			}
+			
 			return $catalogs;
+
 		}else{
 			return false;
 		}

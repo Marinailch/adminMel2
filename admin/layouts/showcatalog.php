@@ -1,4 +1,6 @@
-
+<?php
+header('Content-type: text/html; charset="UTF-8"');
+?>
 <div class="header">
 	<div class="logo">
 		<a href="#"><img src="./images/logo1.png" width="130px">
