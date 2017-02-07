@@ -487,7 +487,7 @@
                     <!-- About Us Information -->
                     <div class="col-md-3 col-sm-6">                           
                         <div class="f-logo" style="display: block; width: 100%; ">
-                           <h2> <a  href="index.php#home"><img class="logo_menu" src="assets/img/logo4.png" alt="logo"></a> </h2>                                                              
+                           <h2> <a  href="index.php#home"><img class="logo_menu_footer" src="assets/img/logo4.png" alt="logo"></a> </h2>                                                              
                         </div>
                     </div>
                     
@@ -500,10 +500,9 @@
                             <strong>Днепр</strong>
                             <div class="f-space"></div>
                             <address>                                
-                                <abbr title="Тел">Тел</abbr> (067) 639-70-18<br>  
+                                <abbr title="Тел">Тел</abbr> +38 067 639-70-18<br>  
                                      marynaprokhorova@gmail.com     <br>                         
-                                     Пр. Д. Яворницкого 59, офис 54
-                                  
+                                     Пр. Д. Яворницкого 59, офис 54<br> 
                             </address>                           
                         </div>
                     </div>
@@ -514,14 +513,13 @@
                             <i class="fa fa-map-marker fa-lg"></i> 
                         </div> -->
                         <div class="col-sm-10">
-                            <strong><div class="f-space"></div></strong>
+                           <div style="width: 100%; height: 23px;"></div>
                             <div class="f-space"></div>
                             <address>                                
-                               <abbr title="Тел">Тел</abbr> (067) 000-70-18<br>  
-                                     адрес Лены@gmail.com     <br>                         
-                                     Пр. Карла Маркса 59, офис 54 <br> 
+                               <abbr title="Тел">Тел</abbr> +38 067 567-52-65<br>  
+                                     mel.home.design@gmail.com<br>                         
+                                     Пр. Карла Маркса 59, офис 54
                             </address>
-                    
                         </div>
                     </div>
 
@@ -531,23 +529,20 @@
                             <div class="f-space"></div>
                         </div>
                         <div class="col-sm-10">
-                            <strong><div class="f-space"></div></strong>
+                            <div style="width: 100%; height: 24px;"></div>
                             <div class="f-space"></div>
                             <div>                  
-                         <a href=""> <img src="assets/img/vk.png"  ></a>
-                         <a href="" > <img src="assets/img/fb.png"   ></a>
-                        <a href="" > <img src="assets/img/ok.png" ></a>
+                         <a href="https://www.instagram.com/design_mel/"> <img src="assets/img/inst.png"  ></a>
+                         <a href="https://m.facebook.com/MEL_design-1681646058831296/?ref=bookmarks" > <img src="assets/img/fb.png"   ></a>
+                        <!-- <a href="" > <img src="assets/img/ok.png" ></a> -->
                   </div> 
                    <div class="f-space"></div>
-                 
                         </div>      
                     </div>                           
 
                 </div>
             </div>
         </div>   
-
-              <!-- End Footer -->
               
 
         <!-- jQuery Plugins -->                                 

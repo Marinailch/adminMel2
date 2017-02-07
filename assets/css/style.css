@@ -447,9 +447,12 @@ iframe{
 text-align: justify;
 }
 
-
-
-
+@media (max-width: 767px) {
+.logo_menu_footer {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+}
 
 
 @media (min-width: 992px) and (max-width: 1200px){
