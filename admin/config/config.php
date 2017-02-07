@@ -15,4 +15,7 @@ $db = array(
 	'name' => 'foto',
 );
 
+
+
+
 $template = './template/showcatalog.php';
