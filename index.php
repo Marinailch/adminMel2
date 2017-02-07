@@ -1,3 +1,7 @@
+<?php 
+error_reporting(-1);
+header('Content-Type: text/html; charset=utf-8');
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -5,7 +9,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <!-- Meta Tags -->        
-        <meta charset="utf-8">
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Дизайн студия MEL </title>
@@ -393,13 +398,15 @@
 
                     <div id="grid-container" class="cbp-l-grid-masonry">
                         <ul>
-	                        <?php
+	                        <?php 
                             include_once './admin/functions.php';
 	                        include_once './admin/config/config.php';
+	                     
 	                        $mysqli = new mysqli($db['host'],
                                 $db['user'],
                                 $db['pass'],
                                 $db['name']);
+	                        
 	                        if($mysqli->connect_errno){
 		                        echo "error with connection to database ->".$mysqli->connect_error;
 		                        die('No connection with database'.__LINE__);
@@ -412,6 +419,8 @@
                                     }else{
                                         $height = '405px';
                                     }
+                  
+
                                     ?>
 
 
