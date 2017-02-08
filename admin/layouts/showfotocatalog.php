@@ -10,6 +10,7 @@
 		<a href='index.php'><img src="./images/site.png" alt="Перейти на сайт"/></a>
 	</div>
 </div>
+<a href='<?=$_SERVER['PHP_SELF']?>?action=destroy'>Выйти из Админпанели</a>
 <div class="container">
     <div class="col-md-4">
         <div class="add_foto">

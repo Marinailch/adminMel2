@@ -1,7 +1,7 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 header('Content-Type: text/html; charset=utf-8');
-//session_start();
+session_start();
 /**
  * Created by PhpStorm.
  * User: s7eel
@@ -22,14 +22,14 @@ include_once './config/config.php';
  *
  */
 $action_obj=new Action($template, $db);
-//if(!$_SESSION['user']){
-////    $action = 'authuser';
-//}else{
-    $action =  filter_input(INPUT_GET, 'action');
-    if(!$action){
-        $action='showcatalogs';
+if(!$_SESSION['user']){
+    $action = 'authuser';
+}else {
+    $action = filter_input(INPUT_GET, 'action');
+    if (!$action) {
+        $action = 'showcatalogs';
     }
-
+}
 
 /**
  * Теперь самое интересное, получаем экземпляр класса Action, содержащий

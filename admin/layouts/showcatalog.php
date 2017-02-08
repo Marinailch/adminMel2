@@ -7,10 +7,12 @@
 	<div class="link">
 		<p> Перейти на сайт</p>
 		<a href='#'><img src="./images/site.png" alt="Перейти на сайт"/></a>
+
 	</div>
 
 </div>
 
+<a href='<?=$_SERVER['PHP_SELF']?>?action=destroy'>Выйти из Админпанели</a>
 <main>
 		<div class="container">
 			<div class="row"> 

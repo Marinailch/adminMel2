@@ -6,7 +6,7 @@
  * Time: 10:30
  * Главный класс по действиям пользователя
  */
-class Action{
+class Action extends User {
 
 	protected $template_name;
 	protected $catStorage;
@@ -370,6 +370,21 @@ class Action{
 
         $this->catStorage->changeMainFotoByID($mainFotoID, $fotoID);
         $this->changefoto($catID);
+    }
+
+    public function authuser(){
+        $title = 'Authentificate';
+        $layout_name = 'layouts/authuser.php';
+        $authlogin = $this->login;
+        $authpassword = $this->password;
+
+        include_once $this->template_name;
+    }
+
+    public function destroy(){
+        $_SESSION['user']=NULL;
+        session_unset();
+        $this->redirect();
     }
 
 
