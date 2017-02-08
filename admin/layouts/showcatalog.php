@@ -1,6 +1,3 @@
-<?php
-header('Content-type: text/html; charset="UTF-8"');
-?>
 <div class="header">
 	<div class="logo">
 		<a href="#"><img src="./images/logo1.png" width="130px">
@@ -21,7 +18,7 @@ header('Content-type: text/html; charset="UTF-8"');
 				<form method="post" action="<?= $_SERVER['PHP_SELF']?>?action=addcatalog" enctype="multipart/form-data">
 					<h4>Добавление каталога</h4>
 					<div class="col-4">
-						<h4 >Проект</4h><br>
+						<h4>Проект</h4>
 						<input type="text" size="20" name="title1" placeholder="Название"><br>
 						<input type="text" size="20" name="title2" placeholder="Дата(title2)"><br>
 						<!-- Можно сделать через дату -->
@@ -101,7 +98,7 @@ header('Content-type: text/html; charset="UTF-8"');
 				<td class="info" style="width: 200px"><?=$item['title1']?></td>
 				<td class="info" style="width: 200px"><?=$item['title2']?></td>
 				<td class="info" style="width: 200px"><?=$class?></td>
-				<td class="info" style="width: 180px"><img src="../assets/img/projects/images/<?=$item['link']?>"></td>
+				<td class="info" style="width: 180px"><img width= 200px; src="../assets/img/projects/images/<?=$item['link']?>"></td>
 				<td class="info" style="width: 180px"><?=$height?></td>
 				<td class="success">
 					<form method="POST">

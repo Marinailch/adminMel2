@@ -27,8 +27,11 @@ class Action{
 	/**
 	 * Функция перенаправки на индексную страницу
 	 */
-	public function redirect(){
-		header('Location:'.$_SERVER['PHP_SELF']);
+	public function redirect($id=NULL){
+        if(!$id){
+            header('Location:'.$_SERVER['PHP_SELF']);
+        }
+		header('Location:'.$_SERVER['PHP_SELF'].$id);
 	}
 
 	/**
@@ -68,7 +71,7 @@ class Action{
 		$title2 = filter_input(INPUT_POST, 'title2');
 		if(!empty($id)&&!empty($title1)&&!empty($title2)){
 			$this->catStorage->savetitle($id, $title1, $title2);
-			$this->redirect();
+			$this->changefoto($id);
 		}else{
 			die('NOT ALL DATA');
 		}
@@ -89,7 +92,7 @@ class Action{
 		}
 		if(!empty($id)){
 			$this->catStorage->changeHeightFoto($id, $height);
-			$this->redirect();
+			$this->changefoto($id);
 		}else{
 			die('something has happened :-(');
 		}
@@ -124,7 +127,7 @@ class Action{
 		);
 		$class = trim(implode(' ', $class));
 		if($this->catStorage->savecatalog($id, $class)){
-			$this->redirect();
+			$this->changefoto($id);
 		}else{
 			die('something has happened :-( during last page');
 		}
@@ -255,20 +258,119 @@ class Action{
 
 
 	}
-	public function changefoto(){
-		$id = filter_input(INPUT_POST, 'id');
+	public function changefoto($id=NULL){
+        //Сделано для более удобного редиректа самого на себя, при $id=NULL, происходит
+        //запрос их POST запроса и присвоение айди каталога, при внесении айди
+        //внутрь функции происходит редирект на изменение каталога с заданным айди
+        if(!$id){
+            $id = filter_input(INPUT_POST, 'id');
+        }
+        //Получаем данные каталога по айди
+        $catalogs = $this->catStorage->getcatalogByid($id);
 		$title = 'change foto inside catalog';
 		$layout_name = 'layouts/showfotocatalog.php';
+        // list of all the fotos from catalog
 		$arr_foto = $this->catStorage->getfotobyID($id);
+        // main foto from catalog
+        $main_foto_catalog = $this->catStorage->getMainFoto($id);
 		include_once $this->template_name;
-
-
 	}
+
+	public function addFotoToCatalog(){
+
+        //Фото не заглавное
+        $main_foto_id = "N";
+
+        //id каталога
+        $id = filter_input(INPUT_POST, 'id');
+
+        // Получаем фото
+        $foto = $_FILES['fotocatalog'];
+
+        $types = array("image/jpeg",);
+        if ($foto['error'] == UPLOAD_ERR_OK) {
+            if (in_array($foto['type'], $types)) {
+                if ($foto['size'] <= 3 * 1024 * 1024) {//Не более 3 мб
+                    $file_name_parts = explode('.',$foto['name']);
+                    $file_extension = array_pop($file_name_parts);
+                    $file_base_name = implode('',$file_name_parts);
+                    $file_name = md5($file_base_name.rand(1, getrandmax()));
+                    $file_name.='.'.$file_extension;
+                    $path = '../assets/img/projects/images/' . $file_name;
+
+                    if (move_uploaded_file($foto['tmp_name'], $path)) {
+                        //Переносим фото в основную папку, спрашиваем были ошибка при внесении других данных
+                        // и вносим фото как заглавное
+
+
+                            $this->catStorage->addmainfoto($id, $file_name, $main_foto_id);
+                            $this->changefoto($id);
+
+
+                    } else {
+                        $message = "problem with moving";
+                    }
+                } else {
+                    $message = "file is too large";
+                }
+            } else {
+                $message = "invalid type of file";
+            }
+        } else {
+            switch ($foto['error']) {
+                case UPLOAD_ERR_INI_SIZE:
+                    $message = "The uploaded file exceeds the upload_max_filesize directive in php.ini";
+                    break;
+                case UPLOAD_ERR_FORM_SIZE:
+                    $message = "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form";
+                    break;
+                case UPLOAD_ERR_PARTIAL:
+                    $message = "The uploaded file was only partially uploaded";
+                    break;
+                case UPLOAD_ERR_NO_FILE:
+                    $message = "No file was uploaded";
+                    break;
+                case UPLOAD_ERR_NO_TMP_DIR:
+                    $message = "Missing a temporary folder";
+                    break;
+                case UPLOAD_ERR_CANT_WRITE:
+                    $message = "Failed to write file to disk";
+                    break;
+                case UPLOAD_ERR_EXTENSION:
+                    $message = "File upload stopped by extension";
+                    break;
+                default:
+                    $message = "Unknown upload error";
+                    break;
+            }
+        }
+        if (!empty($message)) {
+            echo $message;
+        }
+
+
+    }
 
 	public function deletefotobyID(){
 		$id = $_GET['id'];
-		echo 'hihihihihihihihihihihihihihihihihihihihihihihihihihihi'.$id;
+        $cat = $_GET['cat'];
+		$this->catStorage->deleteFotoById($id);
+        $this->changefoto($cat);
 	}
+
+	/**
+     * Изменение главного фото каталога
+     * Получаем айди каталога по Get запросу
+     */
+	public function changeMainFoto(){
+
+        $fotoID = $_GET['id'];
+        $catID = $_GET['cat'];
+        $mainFotoID = $_GET['main'];
+
+        $this->catStorage->changeMainFotoByID($mainFotoID, $fotoID);
+        $this->changefoto($catID);
+    }
 
 
 

@@ -45,7 +45,7 @@ class MainStorage{
 	}
 
 	public function getcatalogByid($id){
-		$query = "SELECT main.id, link, class, title1, title2 FROM main,foto WHERE main.id=foto.link_id AND main.id='$id' AND main_foto_id=\"Y\"";
+		$query = "SELECT main.id, link, class, title1, title2, height FROM main,foto WHERE main.id=foto.link_id AND main.id='$id' AND main_foto_id=\"Y\"";
 		$result = $this->db->query($query);
 		if($result){
 			return $result;
@@ -144,6 +144,31 @@ class MainStorage{
 		}
 			return FALSE;
 	}
+
+    /**
+     * @param $id - catalog id
+     * @return bool - arrray with main foto
+     * create a query with main foto catalog
+     */
+
+    public function getMainFoto($id){
+        $query = "SELECT foto.id, link FROM main, foto WHERE main.id=foto.link_id AND main.id='$id' AND main_foto_id=\"Y\"";
+        if ($result = $this->db->query($query)) {
+            $res_array = array();
+            while ($item = $result->fetch_assoc() ){
+                $res_array[] = $item;
+            }
+            return $res_array;
+        }
+        return FALSE;
+    }
+
+    /**
+     * @param $id
+     * @return bool
+     * Delete the foto from catalog
+     */
+
 	public function deleteCatalogById($id){
 
 		$query = "DELETE FROM main WHERE id='$id'";
@@ -155,6 +180,30 @@ class MainStorage{
 
 	}
 
+    /**
+     *
+     */
+    public function deleteFotoByID ($id){
+
+        $query = "DELETE FROM foto WHERE id='$id'";
+        if($this->db->query($query)){
+            return TRUE;
+        }else{
+            die('Cant delete Foto by ID, ask administrator'.__LINE__);
+        }
+
+    }
+
+    public function changeMainFotoByID($main_id, $id){
+        $query1 = "UPDATE foto SET main_foto_id=\"N\" WHERE id='$main_id'";
+        $query2 = "UPDATE foto SET main_foto_id=\"Y\" WHERE id='$id'";
+        if($this->db->query($query1)){
+            if($this->db->query($query2)){
+                return TRUE;
+            }
+        }
+            die('cant change main foto'.__LINE__);
+    }
 
 
 

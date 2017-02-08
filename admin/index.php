@@ -1,6 +1,7 @@
 <?php
-error_reporting(-1);
+error_reporting(0);
 header('Content-Type: text/html; charset=utf-8');
+//session_start();
 /**
  * Created by PhpStorm.
  * User: s7eel
@@ -20,10 +21,16 @@ include_once './config/config.php';
  * исходное значение $action = showsongs;
  *
  */
-$action =  filter_input(INPUT_GET, 'action');
-if(!$action){
-    $action='showcatalogs';
-}
+$action_obj=new Action($template, $db);
+//if(!$_SESSION['user']){
+////    $action = 'authuser';
+//}else{
+    $action =  filter_input(INPUT_GET, 'action');
+    if(!$action){
+        $action='showcatalogs';
+    }
+
+
 /**
  * Теперь самое интересное, получаем экземпляр класса Action, содержащий
  * в себе $template(main.php) и $db - массив дл подсоединения к БД, в
@@ -37,7 +44,7 @@ if(!$action){
  * будут срабатывать согласно полученного GET запроса после нажатия
  *
  */
-$action_obj=new Action($template, $db);
+
 if(!method_exists($action_obj, $action)){
     $action='showcatalogs';
 }
