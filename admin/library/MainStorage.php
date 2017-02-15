@@ -16,10 +16,18 @@ class MainStorage{
 	        $db['user'],
 	        $db['pass'],
 	        $db['name']);
+//        $this->db->query('SET NAMES UTF8');
+//        $this->db->query('set character_set_server=UTF8');
     }
 
     public function getEnc(){
-    return $this->db->query('SET NAMES UTF8');
+        if($this->db->query('SET NAMES UTF8')){
+            if($this->db->query('set character_set_server=UTF8')){
+                return TRUE;
+            }
+        }
+
+
 	}
 
 	/**

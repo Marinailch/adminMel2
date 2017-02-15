@@ -125,6 +125,17 @@ class Action extends User {
 			filter_input(INPUT_POST, 'furniture'),
 			filter_input(INPUT_POST, 'landscape'),
 		);
+		
+		if(is_array($class)){
+		    $i=0;
+		    foreach ($class as $item){
+		        if ($item == NULL){
+		            unset($class[$i]);
+                }
+                $i++;
+            }
+        }
+        var_dump($class);
 		$class = trim(implode(' ', $class));
 		if($this->catStorage->savecatalog($id, $class)){
 			$this->changefoto($id);
